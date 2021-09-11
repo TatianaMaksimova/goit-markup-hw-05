@@ -56,7 +56,17 @@
             Эффективные решения<br />
             для вашего бизнеса
           </h1>
-          <button type="button" class="ban-button">Заказать услугу</button>
+          <button type="button" class="ban-button" data-modal-open>Заказать услугу</button>
+        </div>
+        <!-- Модальное окно по кнопке "Заказать услугу". -->
+        <div class="backdrop is-hidden" data-modal>
+          <div class="modal">
+            <button data-modal-close>
+              <svg class="modal-button">
+                <use href="./images/icons.svg#close"></use>
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
       <!-- Наши преимущества -->
@@ -406,5 +416,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
