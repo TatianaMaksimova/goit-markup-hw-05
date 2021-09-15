@@ -5,6 +5,8 @@
   --accent-color: #2196f3;
   --icon-fon: #f5f4fa;
   --icon-primary-color: #afb1b8;
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 2500ms;
 }
 
 body {
@@ -45,8 +47,6 @@ p {
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
-
-  /* outline: 2px solid blue; */
 }
 
 .page-header {
@@ -86,6 +86,26 @@ p {
   color: var(--accent-color);
 }
 
+.main {
+  position: relative;
+}
+
+.main::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  display: block;
+  width: 48px;
+  height: 4px;
+  background-color: var(--accent-color);
+  border-radius: 2px;
+}
+
+.portfolio::after {
+  width: 78px;
+}
+
 .link {
   display: block;
   padding-top: 32px;
@@ -97,7 +117,7 @@ p {
   line-height: 1.14;
   text-decoration: none;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--duration) var(--timing-function);
 }
 
 .link:hover,
@@ -114,7 +134,7 @@ p {
   border: none;
   color: var(--secondary-text-color);
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--duration) var(--timing-function);
 }
 
 .link.item:hover,
@@ -169,7 +189,7 @@ p {
   color: var(--bgd-text-color);
   background-color: var(--accent-color);
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--duration) var(--timing-function);
 }
 
 .ban-button:hover,
@@ -372,8 +392,8 @@ p {
   justify-content: center;
   align-items: center;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--duration) var(--timing-function),
+    color var(--duration) var(--timing-function);
 }
 
 .links-icon .icon {
@@ -405,8 +425,8 @@ p {
   border-radius: 4px;
   color: var(--icon-primary-color);
 
-  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: border-color var(--duration) var(--timing-function),
+    color var(--duration) var(--timing-function);
 }
 
 .client-link .icon {
@@ -443,8 +463,8 @@ a {
   cursor: pointer;
   background-color: #f5f4fa;
 
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color var(--duration) var(--timing-function),
+    color var(--duration) var(--timing-function), box-shadow var(--duration) var(--timing-function);
 }
 
 .button-item:not(:last-child) {
@@ -477,19 +497,33 @@ a {
   position: relative;
   display: block;
 
-  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: box-shadow var(--duration) var(--timing-function);
+}
+
+.project-link:hover,
+.project-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-link::before {
-  display: inline-block;
   content: '';
+  display: inline-block;
   position: absolute;
   width: 100%;
   min-height: 294px;
-  transition: background-color;
   background-color: rgba(33, 150, 243, 0.9);
 
+  transition: background-color var(--duration) var(--timing-function);
+
   opacity: 0;
+}
+
+.project-link:hover::before,
+.project-link:focus::before {
+  background-color: rgba(33, 150, 243, 0.9);
+
+  opacity: 1;
 }
 
 .overlay-text {
@@ -497,8 +531,6 @@ a {
   top: 0;
   left: 0;
   width: 100%;
-  transition: color;
-
   padding: 63px 24px;
 
   font-style: normal;
@@ -508,25 +540,16 @@ a {
   letter-spacing: 0.03em;
   color: var(--bgd-text-color);
 
+  transition: color var(--duration) var(--timing-function);
+
   opacity: 0;
 }
 
-.project-link:hover .overlay-text {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+.project-link:hover .overlay-text,
+.project-link:focus .overlay-text {
+  color: var(--bgd-text-color);
 
   opacity: 1;
-}
-
-.project-link:hover::before {
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  opacity: 1;
-}
-
-.project-link:hover,
-.project-link:focus {
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
-    1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
 .project-name {
@@ -551,7 +574,7 @@ a {
 }
 
 /* ФУТЕР */
-.container.main {
+.finish .container {
   display: flex;
   align-items: baseline;
 }
@@ -593,7 +616,7 @@ a {
 }
 
 .footer .item {
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--duration) var(--timing-function);
 }
 
 .footer .item:hover,
@@ -633,8 +656,8 @@ a {
   justify-content: center;
   align-items: center;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color var(--duration) var(--timing-function),
+    background-color var(--duration) var(--timing-function);
 }
 
 .links-foot-icon .icon {
