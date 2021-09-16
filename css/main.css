@@ -6,7 +6,7 @@
   --icon-fon: #f5f4fa;
   --icon-primary-color: #afb1b8;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration: 2500ms;
+  --duration: 250ms;
 }
 
 body {
@@ -188,6 +188,7 @@ p {
   line-height: 1.9;
   color: var(--bgd-text-color);
   background-color: var(--accent-color);
+  cursor: pointer;
 
   transition: background-color var(--duration) var(--timing-function);
 }
@@ -246,6 +247,7 @@ p {
   height: 30px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  cursor: pointer;
 }
 
 /* НАШИ ПРЕИМУЩЕСТВА */
@@ -494,7 +496,7 @@ a {
 }
 
 .project-link {
-  position: relative;
+  /* position: relative; */
   display: block;
 
   transition: box-shadow var(--duration) var(--timing-function);
@@ -506,32 +508,42 @@ a {
     1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
-.project-link::before {
+.first-part {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.first-part::before {
   content: '';
   display: inline-block;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   min-height: 294px;
   background-color: rgba(33, 150, 243, 0.9);
 
-  transition: background-color var(--duration) var(--timing-function);
+  transform: translateY(100%);
+
+  transition: background-color var(--duration) var(--timing-function),
+    transform var(--duration) var(--timing-function), opacity var(--duration) var(--timing-function);
 
   opacity: 0;
 }
 
-.project-link:hover::before,
-.project-link:focus::before {
+.project-link:hover .first-part::before,
+.project-link:focus .first-part::before {
+  transform: translateY(0);
   background-color: rgba(33, 150, 243, 0.9);
-
   opacity: 1;
 }
 
 .overlay-text {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: 63px 24px;
+  top: 63px;
+  left: 24px;
+  right: 24px;
 
   font-style: normal;
   font-weight: 400;
@@ -540,7 +552,8 @@ a {
   letter-spacing: 0.03em;
   color: var(--bgd-text-color);
 
-  transition: color var(--duration) var(--timing-function);
+  transition: color var(--duration) var(--timing-function),
+    opacity var(--duration) var(--timing-function);
 
   opacity: 0;
 }
@@ -552,6 +565,12 @@ a {
   opacity: 1;
 }
 
+.second-part {
+  padding: 20px 24px;
+  border: 1px solid #eeeeee;
+  border-top: 0;
+}
+
 .project-name {
   margin-bottom: 4px;
 
@@ -559,12 +578,6 @@ a {
   font-weight: 700;
   font-size: 18px;
   line-height: 2;
-}
-
-.sign {
-  padding: 20px 24px;
-  border: 1px solid #eeeeee;
-  border-top: 0;
 }
 
 .name-item {
