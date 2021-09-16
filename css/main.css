@@ -206,10 +206,12 @@ p {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
+
+  z-index: 1;
 }
 
 .backdrop.is-hidden {
-  visibility: visible;
+  visibility: hidden;
   opacity: 0;
   pointer-events: none;
 }
@@ -226,6 +228,8 @@ p {
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+
+  z-index: 2;
 }
 
 .modal button {
@@ -328,6 +332,32 @@ p {
 
 .box-item:not(:last-child) {
   margin-right: 30px;
+}
+
+.box-item {
+  position: relative;
+}
+
+.over-over {
+  position: absolute;
+  bottom: 0;
+  width: 370px;
+  height: 70px;
+  background-color: rgba(47, 48, 58, 0.8);
+}
+
+.text {
+  position: absolute;
+  bottom: 27px;
+  width: 370px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  color: var(--bgd-text-color);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 /* НАША КОМАНДА */
@@ -496,7 +526,6 @@ a {
 }
 
 .project-link {
-  /* position: relative; */
   display: block;
 
   transition: box-shadow var(--duration) var(--timing-function);
@@ -514,7 +543,7 @@ a {
   overflow: hidden;
 }
 
-.first-part::before {
+/* .first-part::before {
   content: '';
   display: inline-block;
   position: absolute;
@@ -534,6 +563,29 @@ a {
 
 .project-link:hover .first-part::before,
 .project-link:focus .first-part::before {
+  transform: translateY(0);
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 1;
+} */
+
+.over {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(33, 150, 243, 0.9);
+
+  transform: translateY(100%);
+
+  transition: background-color var(--duration) var(--timing-function),
+    transform var(--duration) var(--timing-function), opacity var(--duration) var(--timing-function);
+
+  opacity: 0;
+}
+
+.project-link:hover .over,
+.project-link:focus .over {
   transform: translateY(0);
   background-color: rgba(33, 150, 243, 0.9);
   opacity: 1;
