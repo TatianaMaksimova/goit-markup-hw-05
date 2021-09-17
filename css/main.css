@@ -220,7 +220,7 @@ p {
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.4);
+  transform: translate(-50%, -50%) scale(0.2);
   opacity: 0;
 }
 
@@ -243,7 +243,8 @@ p {
   opacity: 1;
 
   transition: transform var(--duration) var(--timing-function),
-    opacity var(--duration) var(--timing-function);
+    opacity var(--duration) var(--timing-function),
+    visibility var(--duration) var(--timing-function);
 
   z-index: 2;
 }
@@ -363,9 +364,8 @@ p {
 }
 
 .text {
-  position: absolute;
-  bottom: 27px;
-  width: 370px;
+  padding-top: 27px;
+  padding-bottom: 27px;
 
   font-weight: 700;
   font-size: 14px;
