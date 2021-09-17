@@ -40,7 +40,7 @@ p {
   padding-bottom: 94px;
 }
 
-/* ШАПКА-ВЕРХ С ЛОГОТИПОМ */
+/* -----------------------HEADER------------------------ */
 .container {
   width: 1200px;
   padding-left: 15px;
@@ -147,7 +147,7 @@ p {
   fill: currentColor;
 }
 
-/* СТУДИЯ (MAIN) */
+/* ----------------------СТУДИЯ (MAIN)------------------- */
 .banner-name {
   margin-bottom: 30px;
 
@@ -198,7 +198,7 @@ p {
   background-color: #188ce8;
 }
 
-/* МОДАЛЬНОЕ ОКНО */
+/* ---------------------МОДАЛЬНОЕ ОКНО-------------------- */
 .backdrop {
   position: fixed;
   top: 0;
@@ -220,7 +220,7 @@ p {
 }
 
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0.2);
+  transform: translate(-50%, -50%) scale(0.5);
   opacity: 0;
 }
 
@@ -271,7 +271,7 @@ p {
   color: #000000;
 }
 
-/* НАШИ ПРЕИМУЩЕСТВА */
+/* ---------------НАШИ ПРЕИМУЩЕСТВА---------------- */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -325,7 +325,7 @@ p {
   letter-spacing: 0.03em;
 }
 
-/* ЧЕМ МЫ ЗАНИМАЕМСЯ */
+/* --------------------ЧЕМ МЫ ЗАНИМАЕМСЯ---------------- */
 .box {
   padding-top: 0;
 }
@@ -376,7 +376,7 @@ p {
   text-transform: uppercase;
 }
 
-/* НАША КОМАНДА */
+/* ------------------НАША КОМАНДА-------------------- */
 .comands-blok {
   background-color: #f5f4fa;
 }
@@ -454,7 +454,7 @@ p {
   color: var(--bgd-text-color);
 }
 
-/* ПОСТОЯННЫЕ КЛИЕНТЫ */
+/* -------------------ПОСТОЯННЫЕ КЛИЕНТЫ------------------- */
 .clients-list {
   display: flex;
 }
@@ -487,7 +487,7 @@ p {
   color: var(--accent-color);
 }
 
-/* ПОРТФОЛИО (MAIN) */
+/* -----------------ПОРТФОЛИО (MAIN)--------------------- */
 a {
   text-decoration: none;
 }
@@ -658,7 +658,7 @@ a {
   line-height: 30px;
 }
 
-/* ФУТЕР */
+/* ----------------------ФУТЕР---------------------- */
 .finish .container {
   display: flex;
   align-items: baseline;
