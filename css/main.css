@@ -6,7 +6,7 @@
   --icon-fon: #f5f4fa;
   --icon-primary-color: #afb1b8;
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  --duration: 250ms;
+  --duration: 2500ms;
 }
 
 body {
@@ -207,6 +207,9 @@ p {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.2);
 
+  opacity: 1;
+  transition: opacity var(--duration) var(--timing-function);
+
   z-index: 1;
 }
 
@@ -216,42 +219,55 @@ p {
   pointer-events: none;
 }
 
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.4);
+  opacity: 0;
+}
+
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
 
   min-width: 528px;
   min-height: 581px;
+
   background-color: var(--bgd-text-color);
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 2px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 
+  /* Если есть несколько значений translate, то их объединяем, не забываем задавать их и на .is-hidden.
+  Порядок не имеет значение, но только через пробел! */
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+
+  transition: transform var(--duration) var(--timing-function),
+    opacity var(--duration) var(--timing-function);
+
   z-index: 2;
 }
 
-.modal button {
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  padding: 0;
-  margin: 0;
-  border: 1px solid transparent;
-  background-color: #fff;
-}
-
 .modal-button {
-  margin-top: 7px;
-  margin-right: 8px;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  bottom: 100%;
 
+  padding: 6px;
   width: 30px;
   height: 30px;
+
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
+  background-color: #fff;
+
   cursor: pointer;
+}
+
+.modal-close {
+  border: 1px solid transparent;
+  color: #000000;
 }
 
 /* НАШИ ПРЕИМУЩЕСТВА */
@@ -543,6 +559,7 @@ a {
   overflow: hidden;
 }
 
+/* Через псевдокласс */
 /* .first-part::before {
   content: '';
   display: inline-block;
@@ -579,16 +596,18 @@ a {
   transform: translateY(100%);
 
   transition: background-color var(--duration) var(--timing-function),
-    transform var(--duration) var(--timing-function), opacity var(--duration) var(--timing-function);
+    transform var(--duration) var(--timing-function);
 
-  opacity: 0;
+  /* opacity: 0; */
 }
+
+/* , opacity var(--duration) var(--timing-function) */
 
 .project-link:hover .over,
 .project-link:focus .over {
   transform: translateY(0);
   background-color: rgba(33, 150, 243, 0.9);
-  opacity: 1;
+  /* opacity: 1; */
 }
 
 .overlay-text {
@@ -604,17 +623,18 @@ a {
   letter-spacing: 0.03em;
   color: var(--bgd-text-color);
 
-  transition: color var(--duration) var(--timing-function),
-    opacity var(--duration) var(--timing-function);
+  transition: color var(--duration) var(--timing-function);
 
-  opacity: 0;
+  /* opacity: 0; */
 }
+
+/* , opacity var(--duration) var(--timing-function) */
 
 .project-link:hover .overlay-text,
 .project-link:focus .overlay-text {
   color: var(--bgd-text-color);
 
-  opacity: 1;
+  /* opacity: 1; */
 }
 
 .second-part {
